@@ -23,15 +23,18 @@ An OMI Memory Trigger integration that extracts social intelligence data from co
 
 ## Dashboard Screenshots
 
-### Main Dashboard View
-![Dashboard Overview](screenshots/IMG_3131.jpg)
-
-The dashboard provides a comprehensive view of all your social insights, including people, locations, emotions, and social intent.
-
-### Memory Details
-![Memory Details](screenshots/IMG_3132.jpg)
-
-Each memory includes detailed information about people, locations, emotions, and social intent, with important memories highlighted and emoji reactions.
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex: 1; margin-right: 10px;">
+    <h3>Main Dashboard View</h3>
+    <img src="screenshots/IMG_3131.jpg" alt="Dashboard Overview" width="400"/>
+    <p>The dashboard provides a comprehensive view of all your social insights, including people, locations, emotions, and social intent.</p>
+  </div>
+  <div style="flex: 1; margin-left: 10px;">
+    <h3>Memory Details</h3>
+    <img src="screenshots/IMG_3132.jpg" alt="Memory Details" width="400"/>
+    <p>Each memory includes detailed information about people, locations, emotions, and social intent, with important memories highlighted and emoji reactions.</p>
+  </div>
+</div>
 
 ## Setup
 
