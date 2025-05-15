@@ -21,6 +21,23 @@ An OMI Memory Trigger integration that extracts social intelligence data from co
   - Setup status endpoint
   - Dashboard link included in responses
 
+## Dashboard Screenshots
+
+### Main Dashboard View
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+The dashboard provides a comprehensive view of all your social insights, including people, locations, emotions, and social intent.
+
+### Important Memories
+![Important Memories](screenshots/important_memories.png)
+
+Important memories are highlighted with a 🔥 icon and yellow background, making them easy to spot.
+
+### Emoji Reactions
+![Emoji Reactions](screenshots/emoji_reactions.png)
+
+Each memory includes an emoji reaction based on the detected emotions, adding personality to your social insights.
+
 ## Setup
 
 1. Clone this repository
@@ -124,10 +141,6 @@ Insights are stored in `data/people.json` with:
 The app automatically highlights important social interactions based on:
 - Multiple emotions in a single conversation
 - Presence of intense emotion words ("very", "deeply", "meaningful", etc.)
-
-## Screenshots
-
-(Add screenshots of your dashboard here)
 
 ## License
 
