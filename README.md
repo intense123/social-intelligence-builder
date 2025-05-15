@@ -24,124 +24,66 @@ An OMI Memory Trigger integration that extracts social intelligence data from co
 ## Dashboard Screenshots
 
 ### Main Dashboard View
-![Dashboard Overview](screenshots/dashboard_overview.png)
+![Dashboard Overview](screenshots/IMG_3131.jpg)
 
 The dashboard provides a comprehensive view of all your social insights, including people, locations, emotions, and social intent.
 
-### Important Memories
-![Important Memories](screenshots/important_memories.png)
+### Memory Details
+![Memory Details](screenshots/IMG_3132.jpg)
 
-Important memories are highlighted with a 🔥 icon and yellow background, making them easy to spot.
-
-### Emoji Reactions
-![Emoji Reactions](screenshots/emoji_reactions.png)
-
-Each memory includes an emoji reaction based on the detected emotions, adding personality to your social insights.
+Each memory includes detailed information about people, locations, emotions, and social intent, with important memories highlighted and emoji reactions.
 
 ## Setup
 
 1. Clone this repository
    ```
-   git clone <repository-url>
+   git clone https://github.com/intense123/social-intelligence-builder.git
    cd social-intelligence-builder
    ```
 
-2. Create a virtual environment and install dependencies
+2. Create a virtual environment
    ```
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies
+   ```
    pip install -r requirements.txt
    ```
 
-3. Set up your OpenAI API key
+4. Create a `.env` file with your OpenAI API key
    ```
-   # Create a .env file
-   echo "OPENAI_API_KEY=your_api_key_here" > .env
+   cp .env-example .env
+   # Edit .env and add your OpenAI API key
    ```
 
-## Running the App
+## Usage
 
-Start the Flask server:
+1. Start the Flask server
+   ```
+   python app.py
+   ```
+
+2. The server will run on http://localhost:5001
+
+3. To expose your local server to the internet (for OMI integration), use ngrok:
+   ```
+   ngrok http 5001
+   ```
+
+4. Configure your OMI memory trigger to point to your ngrok URL + `/memory-trigger`
+   Example: `https://your-ngrok-url.ngrok.io/memory-trigger`
+
+5. Visit `/dashboard` to view your social intelligence insights
+
+## Testing
+
+Run the included test script to verify your setup:
 ```
-python app.py
+python test_app.py
 ```
-
-For public access (development only):
-```
-# Install ngrok if you haven't already
-brew install ngrok  # On macOS
-# or download from https://ngrok.com/download
-
-# Run ngrok to expose your local server
-ngrok http 5001
-```
-
-## Endpoints
-
-### GET /dashboard
-
-The visual dashboard for viewing all social intelligence insights.
-
-**Access**: Open in any web browser
-```
-http://localhost:5001/dashboard
-```
-
-### POST /memory-trigger
-
-Receives memory data from OMI and extracts social intelligence.
-
-**Request**: Memory data in the format provided by OMI.
-
-**Response**:
-```json
-{
-  "status": "ok",
-  "extracted": {
-    "people": ["Sarah"],
-    "locations": ["Coffee Shop", "Brooklyn"],
-    "emotions": ["excited"],
-    "social_intent": "reconnect",
-    "uid": "user123"
-  },
-  "summary": "📊 Social Intelligence: People: Sarah | Location: Coffee Shop, Brooklyn | Emotions: excited | Intent: reconnect | 🔥 Key insight: Rekindling friendship shows mutual interest in staying connected."
-}
-```
-
-### GET /setup-status
-
-Returns the setup status of the app.
-
-**Response**:
-```json
-{
-  "is_setup_completed": true
-}
-```
-
-## Data Storage
-
-Insights are stored in `data/people.json` with:
-- Structured data (people, locations, emotions, intent)
-- Human-readable summary
-- Timestamp
-- User ID
-
-## Integration with OMI
-
-1. Deploy this app or use ngrok to get a public URL
-2. In OMI:
-   - Go to Settings > Developer Mode > Developer Settings
-   - Set Memory Creation Webhook URL to: `https://your-url.com/memory-trigger`
-   - Set Setup Status URL to: `https://your-url.com/setup-status`
-3. After conversations, visit `/dashboard` to see your social intelligence insights
-
-## Important Memory Detection
-
-The app automatically highlights important social interactions based on:
-- Multiple emotions in a single conversation
-- Presence of intense emotion words ("very", "deeply", "meaningful", etc.)
 
 ## License
 
-(Add license information here) 
+MIT
