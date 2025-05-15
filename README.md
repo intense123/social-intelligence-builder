@@ -84,7 +84,7 @@ An OMI Memory Trigger integration that extracts social intelligence data from co
 
 Run the included test script to verify your setup:
 ```
-python test_app.py
+python3 test_app.py
 ```
 
 ## License
